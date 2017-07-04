@@ -269,11 +269,20 @@ class FLINTR(object):
 	def set_values(self,value_dict):
 		try:
 			for key in value_dict.keys():
+				
 				if key in self.value_store.keys():
-					if key != '1':
-						self.value_store[key] = value_dict[key]
+					
+					if key in number_dict:
+
+						self.value_store[key] = number_dict[key]
+
+					elif key in special_dict:
+
+						self.value_store[key] = special_dict[key]
+
 					else:
-						self.value_store[key] = 1.00
+
+						self.value_store[key] = value_dict[key]
 		except:
 			pass
 
